@@ -1,24 +1,29 @@
-#include <iostream>
-#include <algorithm>
+#include<iostream>
 using namespace std;
- 
-int main(){
-    int n, c1=0, c2=0, c3=0, ans=0;
+
+int ans, ind, tmp, n, e;
+int cnt[5];
+
+int main() {
     cin >> n;
-    int arr[n];
-    for(int i=0;i<n;i++){
-        cin >> arr[i];
-        if(arr[i]==1) c1++;
-        else if(arr[i]==2) c2++;
-        else if(arr[i]==3) c3++;
-        else ans++;
+
+    for (int i = 0; i < n; i++) {
+        cin >> e;
+        cnt[e]++;
     }
-    int m=min(c1, c3);
-    ans += m;
-    c1 -= m;
-    c3 -= m;
-    m=min(c1/2, c2);
-    ans += m;
-    c1 -= m;
-    c2 -= m;
+
+    tmp = min(cnt[1], cnt[3]);
+    ans = cnt[4] + tmp + cnt[2]/2;
+    cnt[1] -= tmp;
+    cnt[3] -= tmp;
+    cnt[2] %= 2;
+    ans += cnt[1]/4 + cnt[3];
+    cnt[1] %= 4;
+    if (cnt[1] == 0 && cnt[1] == cnt[2]) ans = ans;
+    else {
+        if (cnt[2] && cnt[1] > 2) ans++;
+        ans++;
+    }
+
+    cout << ans << endl;
 }
