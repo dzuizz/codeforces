@@ -3,14 +3,19 @@
 using namespace std;
 typedef long long ll;
 
-int main(){
-    char c;
-    cin >> c;
+int main() {
     string s;
-    set<char> arr;
-    while(cin >> s){
-        if(s=="}") break;
-        arr.insert(s[0]);
+    getline(cin, s);
+
+    set<int> st;
+
+    if (s.size() == 2) {
+        cout << 0 << '\n';
+        return 0;
     }
-    cout << arr.size() << endl;
+    for (int i = 1; i < s.size(); i += 3) {
+        st.insert(s[i]);
+    }
+
+    cout << st.size() << '\n';
 }
