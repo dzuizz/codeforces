@@ -1,23 +1,35 @@
 #include <iostream>
-#include <vector>
 using namespace std;
-typedef long long ll;
 
-int n, e;
+typedef long long ll;
+typedef pair<int, int> ii;
+
+#define all(x) x.begin(), x.end()
+#define sz(x) (int) x.size()
+#define pb push_back
+#define fi first
+#define se second
 
 int main() {
-    cin >> n;
-    vector< pair<int, int> > even;
-    vector< pair<int, int> > odd;
-              //num, index
-    for (int i = 1; i <= n; i++) {
-        cin >> e;
-        if (e % 2 == 0) {
-            even.push_back(make_pair(e, i));
-        } else {
-            odd.push_back(make_pair(e, i));
+    int graph[4][4];
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            char ch; cin >> ch;
+            if (ch == '#') graph[i][j] = 1;
+            else graph[i][j] = 0;
         }
     }
-    if(even.size() == 1) cout << even[0].second << endl;
-    else cout << odd[0].second << endl;
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            int cur = graph[i][j] + graph[i][j + 1] + graph[i + 1][j] + graph[i + 1][j + 1];
+            if (cur != 2) {
+                cout << "YES\n";
+                return 0;
+            }
+        }
+    }
+
+    cout << "NO\n";
 }
