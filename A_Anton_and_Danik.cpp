@@ -1,17 +1,27 @@
+#include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
-typedef long long ll;
 
-int main(){
-    int n, a=0, d=0;
-    cin >> n;
-    char ch;
-    for(int i=0;i<n;i++){
-        cin >> ch;
-        if(ch=='A') a++;
-        else d++;
+#define int long long
+#define fi first
+#define se second
+
+const int INF = 1e9;
+const int M = 1e9 + 7;
+
+signed main() {
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+    int n; cin >> n;
+    string s; cin >> s;
+
+    int cnt=0;
+    for (auto ch : s) {
+        if (ch == 'A') cnt++;
+        else cnt--;
     }
-    if(a>d) cout << "Anton\n";
-    else if(a<d) cout << "Danik\n";
+
+    if (cnt > 0) cout << "Anton\n";
+    else if (cnt < 0) cout << "Danik\n";
     else cout << "Friendship\n";
 }
