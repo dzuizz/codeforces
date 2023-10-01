@@ -1,14 +1,24 @@
+#include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
-typedef long long ll;
 
-int main(){
-    int n, h, a, ans=0;
-    cin >> n >> h;
-    for(int i=0;i<n;i++){
-        cin >> a;
-        if(a>h) ans += 2;
-        else ans++;
+#define int long long
+#define fi first
+#define se second
+
+const int INF = 1e9;
+const int M = 1e9 + 7;
+
+signed main() {
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+    int n, h; cin >> n >> h;
+    int ans=n;
+
+    for (int i=0; i<n; i++) {
+        int x; cin >> x;
+        ans += (x>h);
     }
-    cout << ans << endl;
+
+    cout << ans << '\n';
 }
