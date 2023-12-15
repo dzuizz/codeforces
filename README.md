@@ -1,4 +1,4 @@
-# Codeforces Solutions
+# Codeforces Problemset Solutions
 
 ## Overview
 This repository contains my solutions to various competitive programming problems from [codeforces](https://codeforces.com/). These solutions are meant for educational purposes and to share different approaches to solving complex programming challenges.
