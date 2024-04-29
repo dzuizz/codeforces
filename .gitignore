@@ -1,6 +1,10 @@
-*.DS_Store
+# Environment files
+.DS_Store
+.vscode
+.idea
+
+# Debug files
 *.cph
-*.vscode
 *.bin
-.gitignore
 a.out
+main
